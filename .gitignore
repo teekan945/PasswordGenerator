@@ -7,9 +7,16 @@
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
+/.idea/gradle.xml
+/.idea/compiler.xml
 .DS_Store
 /build
 /captures
 .externalNativeBuild
 .cxx
 local.properties
+
+# Macrobenchmark build outputs
+/macrobenchmark/build/
+/app/src/main/baseline-prof.txt
+/app/src/release/baseline-prof.txt

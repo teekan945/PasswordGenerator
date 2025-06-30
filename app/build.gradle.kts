@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.hilt.android)
+    alias(libs.plugins.androidx.baselineprofile)
     kotlin("kapt")
 }
 
@@ -21,6 +22,12 @@ android {
     }
 
     buildTypes {
+        create("benchmark") {
+            initWith(buildTypes.getByName("release"))
+            signingConfig = signingConfigs.getByName("debug")
+            matchingFallbacks += listOf("release")
+            isDebuggable = false
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -42,6 +49,7 @@ android {
 }
 
 dependencies {
+    baselineProfile(project(":macrobenchmark"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -56,6 +64,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.nulab.zxcvbn)
+    implementation(libs.androidx.profileinstaller)
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.turbine)

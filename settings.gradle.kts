@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "PassWord Generator"
 include(":app")
+include(":macrobenchmark")
  
