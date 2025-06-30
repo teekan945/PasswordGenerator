@@ -13,3 +13,8 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Macrobenchmark build outputs
+/macrobenchmark/build/
+/app/src/main/baseline-prof.txt
+/app/src/release/baseline-prof.txt
